@@ -1,63 +1,83 @@
-Ad Space Booking – Mono Repo
-================================
+# Ad Space Booking – Mono Repo
 
-This repository contains both the backend (Spring Boot) and frontend (React + TypeScript).
-Each project has its own README with details, commands, and folder structure.
-The mono-repo exists only for convenience so everything sits in one place while sharing the same challenge domain.
+This repository contains both the backend (Spring Boot) and frontend (React + TypeScript).  
+Each project has its own README with details and instructions.
 
-Structure
----------
+This mono-repo exists only for convenience.
+
+## Structure
+
+```
 ad-space-booking/
 │
-├── backend/           # Spring Boot app
-│   └── adspace/       # actual server code + .env.example
+├── backend/
+│   └── adspace/        # Spring Boot app + .env.example
 │
-└── frontend/          # React + TypeScript client
+└── frontend/           # React + TypeScript client
+```
 
-Backend – Quick Start
----------------------
+---
 
+## Backend – Quick Start
+
+```bash
 cd backend/adspace
+```
 
-Copy env file:
+1. Copy env file:
+```bash
 cp .env.example .env
-Update DB settings inside .env.
+```
 
-Start PostgreSQL (Docker):
+2. Start PostgreSQL (Docker):
+```bash
 docker run --name postgres-challenge -e POSTGRES_PASSWORD=<your-password> -p 5432:5432 -d postgres:15
+```
 
-Run the server:
+3. Run the server:
+```bash
 ./mvnw spring-boot:run
+```
 
-Server runs at: http://localhost:8080
+Server runs at: **http://localhost:8080**
 
-Backend Tests
--------------
+### Backend Tests
 
-Run the full test suite:
-
+```bash
 ./mvnw test
+```
 
-The backend is built with Spring Boot 3.5.8, Java 17, and enforces business rules such as seven-day minimum bookings and future start dates. Full API details, validation rules, and sample payloads live in backend/adspace/README.md.
+---
 
-Frontend – Quick Start
-----------------------
+## Frontend – Quick Start
 
+```bash
 cd frontend
 npm install
 npm start
+```
 
-Runs at: http://localhost:3000
+Runs at: **http://localhost:3000**
 
-The frontend expects the backend running locally on port 8080.
-It is a Create React App project that uses Material UI, @mui/x-date-pickers, Zustand, Day.js, and Axios to deliver the booking UI described in frontend/README.md.
+The frontend expects the backend running on **port 8080**.
 
-Environment Files
------------------
+---
 
-Backend includes an .env.example inside:
+## Environment Files
 
+Backend includes an example environment file:
+
+```
 backend/adspace/.env.example
+```
 
-Copy it → .env → update DB password.
-Frontend does not require an env unless added later; configuration currently relies on the hard-coded API base URL in the client.
+Copy it to `.env` and update DB credentials.
+
+Frontend does not require an env file unless added later.
+
+---
+
+## Notes
+
+- Each part of the project has its own README for full details.
+- The root README only explains structure + basic startup.
