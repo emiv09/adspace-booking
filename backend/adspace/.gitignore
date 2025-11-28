@@ -6,12 +6,6 @@ target/
 *.tmp
 *.temp
 
-# Maven wrapper files
-.mvn/wrapper/maven-wrapper.jar
-.mvn/wrapper/maven-wrapper.properties
-mvnw
-mvnw.cmd
-
 # IntelliJ IDEA project files
 .idea/
 *.iml
