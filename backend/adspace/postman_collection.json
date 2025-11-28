@@ -1,0 +1,261 @@
+{
+  "info": {
+    "name": "Ad Space Booking System API",
+    "description": "Collection of API endpoints for the Ad Space Booking System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Ad Spaces",
+      "item": [
+        {
+          "name": "Get All Available Ad Spaces",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/ad-spaces",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "ad-spaces"]
+            }
+          }
+        },
+        {
+          "name": "Get Ad Spaces by Type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/ad-spaces?type=BILLBOARD",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "ad-spaces"],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "BILLBOARD"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Ad Spaces by City",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/ad-spaces?city=New York",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "ad-spaces"],
+              "query": [
+                {
+                  "key": "city",
+                  "value": "New York"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Ad Space by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/ad-spaces/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "ad-spaces", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Booking Requests",
+      "item": [
+        {
+          "name": "Create Booking Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adSpaceId\": 1,\n  \"advertiserName\": \"John Doe\",\n  \"advertiserEmail\": \"john.doe@example.com\",\n  \"startDate\": \"2025-12-01\",\n  \"endDate\": \"2025-12-08\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/booking-requests",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "booking-requests"]
+            }
+          }
+        },
+        {
+          "name": "Get All Bookings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/booking-requests",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "booking-requests"]
+            }
+          }
+        },
+        {
+          "name": "Get Pending Bookings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/booking-requests?status=PENDING",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "booking-requests"],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PENDING"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Booking by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/booking-requests/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "booking-requests", "1"]
+            }
+          }
+        },
+        {
+          "name": "Approve Booking",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/booking-requests/1/approve",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "booking-requests", "1", "approve"]
+            }
+          }
+        },
+        {
+          "name": "Reject Booking",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/booking-requests/1/reject",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "booking-requests", "1", "reject"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Validation Tests",
+      "item": [
+        {
+          "name": "Create Booking - Invalid Email",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adSpaceId\": 1,\n  \"advertiserName\": \"John Doe\",\n  \"advertiserEmail\": \"invalid-email\",\n  \"startDate\": \"2025-12-01\",\n  \"endDate\": \"2025-12-08\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/booking-requests",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "booking-requests"]
+            }
+          }
+        },
+        {
+          "name": "Create Booking - Duration Too Short",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adSpaceId\": 1,\n  \"advertiserName\": \"John Doe\",\n  \"advertiserEmail\": \"john.doe@example.com\",\n  \"startDate\": \"2025-12-01\",\n  \"endDate\": \"2025-12-05\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/booking-requests",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "booking-requests"]
+            }
+          }
+        },
+        {
+          "name": "Create Booking - Missing Fields",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adSpaceId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/booking-requests",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "booking-requests"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+

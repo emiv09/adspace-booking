@@ -1,0 +1,44 @@
+# Java / Maven build outputs
+target/
+*.class
+*.log
+*.out
+*.tmp
+*.temp
+
+# Maven wrapper files
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+mvnw
+mvnw.cmd
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# OS-generated junk (Windows / macOS)
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Spring Boot related
+.spring-boot-devtools.properties
+
+# Environment files
+*.env
+.env.*
+
+# Backup files
+*~
+
+# Allow target inside source directories (if any module uses them)
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Allow build folders inside src (rare but some plugins use it)
+!**/src/main/**/build/
+!**/src/test/**/build/
